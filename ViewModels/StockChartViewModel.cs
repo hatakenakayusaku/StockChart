@@ -1,14 +1,8 @@
-﻿using LiveCharts;
-using StockChart.BaseControl;
+﻿using StockChart.BaseControl;
 using StockChart.CommonFunctions;
 using StockChart.DTO;
 using StockChart.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace StockChart.ViewModels
@@ -126,7 +120,7 @@ namespace StockChart.ViewModels
                 _ =>
                 {
                     //株価のチャートデータを取得
-                    Tuple<string,ChartDataDto> result = this.Model.SearchChartData(this.StockCode);
+                    Tuple<string, ChartDataDto> result = this.Model.SearchChartData(this.StockCode);
 
                     //取得結果を設定
                     this.SiteName = result.Item1;
@@ -135,13 +129,13 @@ namespace StockChart.ViewModels
                 },
                 _ =>
                 {
-                    
+
                     if (this.ChartData is object)
                     {
                         //再検索を注意
                         MessageBoxResult result = MessageBox.Show("再検索しますか？"
-                                                                ,"メッセージボックス"
-                                                                ,MessageBoxButton.YesNoCancel);
+                                                                , "メッセージボックス"
+                                                                , MessageBoxButton.YesNoCancel);
                         if (result == MessageBoxResult.Yes)
                         {
                             //「はい」ボタンを押した場合の処理

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace StockChart.BaseControl
@@ -20,7 +16,7 @@ namespace StockChart.BaseControl
         /// コマンドの実行可能性を判別するためのメソッドを保持します。
         /// </summary>
         private Func<object, bool> _canExecute;
-        
+
         #endregion フィールド
 
         #region コンストラクタ
