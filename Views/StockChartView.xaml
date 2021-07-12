@@ -1,0 +1,34 @@
+﻿<Window x:Class="StockChart.Views.StockChartView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockChart"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="706.27" Width="932.322" Background="#FFEAE8E8">
+    <Grid >
+        <StackPanel Orientation ="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="text" Height="30" Width="100" MaxLength="4" Text="{Binding StockCode}"/>
+                <Button Name="B_draw" Height="30" Content="Draw" Command="{Binding DrawButton}"/>
+                <Label Content="{Binding SiteName}" />
+            </StackPanel>
+            <lvc:CartesianChart Series="{Binding ChartData.CostList}" Height="250">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="日付" Labels="{Binding ChartData.DayList}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+            <lvc:CartesianChart Series="{Binding ChartData.DekidakaList}" Height="250">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="日付" Labels="{Binding ChartData.DayList}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+            <lvc:CartesianChart Series="{Binding ChartData.DiffList}" Height="250">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="日付" Labels="{Binding ChartData.DayList}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        </StackPanel>
+    </Grid>
+</Window>
